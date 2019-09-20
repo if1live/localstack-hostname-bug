@@ -1,0 +1,16 @@
+{
+  "name": "localhost",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "deploy:localhost": "serverless deploy --stage local --config serverless.localhost.yml",
+    "deploy:ip": "serverless deploy --stage local --config serverless.127.0.0.1.yml"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^1.52.1",
+    "serverless-localstack": "^0.4.19"
+  }
+}

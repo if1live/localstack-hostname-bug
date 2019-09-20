@@ -1,0 +1,64 @@
+localstack_1  | 2019-09-20 06:37:36,036:API: 127.0.0.1 - - [20/Sep/2019 06:37:36] "GET / HTTP/1.1" 200 -
+localstack_1  | Ready.
+localstack_1  | 2019-09-20 06:38:14,843:API: 127.0.0.1 - - [20/Sep/2019 06:38:14] "GET /example-ip-local-ServerlessDeploymentBucket-86BW5JKIV0E0?location HTTP/1.1" 404 -
+localstack_1  | 2019-09-20 06:38:14,856:API: 127.0.0.1 - - [20/Sep/2019 06:38:14] "PUT /example-ip-local-ServerlessDeploymentBucket-86BW5JKIV0E0 HTTP/1.1" 200 -
+localstack_1  | 2019-09-20T06:38:14:DEBUG:localstack.services.cloudformation.cloudformation_listener: Error response from CloudFormation (400) POST /: b'<ErrorResponse xmlns="http://cloudformation.amazonaws.com/doc/2010-05-15/">\n  <Error>\n    <Type>Sender</Type>\n    <Code>ValidationError</Code>\n    <Message>Stack with id example-ip-local does not exist</Message>\n  </Error>\n  <RequestId>cf4c737e-5ae2-11e4-a7c9-ad44eEXAMPLE</RequestId>\n</ErrorResponse>'
+localstack_1  | 2019-09-20T06:38:14:DEBUG:localstack.services.cloudformation.cloudformation_starter: Currently updating stack resource example-ip-local/ServerlessDeploymentBucket: None
+localstack_1  | 2019-09-20T06:38:14:DEBUG:localstack.services.cloudformation.cloudformation_starter: Deploying CloudFormation resource: {'Type': 'AWS::S3::Bucket', 'Properties': {'BucketEncryption': {'ServerSideEncryptionConfiguration': [{'ServerSideEncryptionByDefault': {'SSEAlgorithm': 'AES256'}}]}, 'BucketName': 'example-ip-local-ServerlessDeploymentBucket-86BW5JKIV0E0'}}
+localstack_1  | 2019-09-20T06:38:14:DEBUG:localstack.utils.cloudformation.template_deployer: Deploying resource type "S3::Bucket" id "ServerlessDeploymentBucket"
+localstack_1  | 2019-09-20T06:38:14:DEBUG:localstack.utils.cloudformation.template_deployer: Request for creating resource type "S3::Bucket": create_bucket {'Bucket': 'example-ip-local-ServerlessDeploymentBucket-86BW5JKIV0E0', 'ACL': 'public-read'}
+localstack_1  | 2019-09-20 06:38:19,941:API: 127.0.0.1 - - [20/Sep/2019 06:38:19] "GET /example-ip-local-ServerlessDeploymentBucket-86BW5JKIV0E0?list-type=2&prefix=serverless%2Fexample-ip%2Flocal HTTP/1.1" 200 -
+localstack_1  | 2019-09-20 06:38:19,992:API: 127.0.0.1 - - [20/Sep/2019 06:38:19] "PUT /example-ip-local-ServerlessDeploymentBucket-86BW5JKIV0E0/serverless/example-ip/local/1568961494734-2019-09-20T06%3A38%3A14.734Z/compiled-cloudformation-template.json HTTP/1.1" 200 -
+localstack_1  | 2019-09-20 06:38:20,023:API: 127.0.0.1 - - [20/Sep/2019 06:38:20] "PUT /example-ip-local-ServerlessDeploymentBucket-86BW5JKIV0E0/serverless/example-ip/local/1568961494734-2019-09-20T06%3A38%3A14.734Z/example-ip.zip HTTP/1.1" 200 -
+localstack_1  | 2019-09-20 06:38:20,049:API: 127.0.0.1 - - [20/Sep/2019 06:38:20] "GET /127/example-ip-local-ServerlessDeploymentBucket-86BW5JKIV0E0/serverless/example-ip/local/1568961494734-2019-09-20T06%3A38%3A14.734Z/compiled-cloudformation-template.json HTTP/1.1" 404 -
+localstack_1  | 2019-09-20 06:38:20,131:API: 127.0.0.1 - - [20/Sep/2019 06:38:20] "GET /127/example-ip-local-ServerlessDeploymentBucket-86BW5JKIV0E0/serverless/example-ip/local/1568961494734-2019-09-20T06%3A38%3A14.734Z/compiled-cloudformation-template.json HTTP/1.1" 404 -
+localstack_1  | 2019-09-20T06:38:19:WARNING:localstack.services.awslambda.lambda_api: Function not found: arn:aws:lambda:us-east-1:000000000000:function:example-ip-local-hello
+localstack_1  | 2019-09-20T06:38:20:DEBUG:localstack.services.cloudformation.cloudformation_listener: Error response from CloudFormation (500) POST /: b'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+localstack_1  | 2019-09-20 06:38:20,068:API: Error on request:
+localstack_1  | Traceback (most recent call last):
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/werkzeug/serving.py", line 303, in run_wsgi
+localstack_1  |     execute(self.server.app)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/werkzeug/serving.py", line 291, in execute
+localstack_1  |     application_iter = app(environ, start_response)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/moto/server.py", line 132, in __call__
+localstack_1  |     return backend_app(environ, start_response)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/app.py", line 2309, in __call__
+localstack_1  |     return self.wsgi_app(environ, start_response)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/app.py", line 2295, in wsgi_app
+localstack_1  |     response = self.handle_exception(e)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/app.py", line 1741, in handle_exception
+localstack_1  |     reraise(exc_type, exc_value, tb)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+localstack_1  |     raise value
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+localstack_1  |     response = self.full_dispatch_request()
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+localstack_1  |     rv = self.handle_user_exception(e)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+localstack_1  |     reraise(exc_type, exc_value, tb)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+localstack_1  |     raise value
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+localstack_1  |     rv = self.dispatch_request()
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+localstack_1  |     return self.view_functions[rule.endpoint](**req.view_args)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/moto/core/utils.py", line 140, in __call__
+localstack_1  |     result = self.callback(request, request.url, {})
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/moto/core/responses.py", line 168, in dispatch
+localstack_1  |     return cls()._dispatch(*args, **kwargs)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/moto/core/responses.py", line 259, in _dispatch
+localstack_1  |     return self.call_action()
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/moto/core/responses.py", line 340, in call_action
+localstack_1  |     response = method()
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/moto/cloudformation/responses.py", line 261, in update_stack
+localstack_1  |     stack_body = self._get_stack_from_s3_url(template_url)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/moto/cloudformation/responses.py", line 38, in _get_stack_from_s3_url
+localstack_1  |     key = s3_backend.get_key(bucket_name, key_name)
+localstack_1  |   File "/opt/code/localstack/localstack/services/cloudformation/cloudformation_starter.py", line 120, in get_key
+localstack_1  |     value = s3_client.get_object(Bucket=bucket_name, Key=key_name)['Body'].read()
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/botocore/client.py", line 357, in _api_call
+localstack_1  |     return self._make_api_call(operation_name, kwargs)
+localstack_1  |   File "/opt/code/localstack/.venv/lib/python3.6/site-packages/botocore/client.py", line 661, in _make_api_call
+localstack_1  |     raise error_class(parsed_response, operation_name)
+localstack_1  | botocore.errorfactory.NoSuchBucket: An error occurred (NoSuchBucket) when calling the GetObject operation: The specified bucket does not exist
+....
